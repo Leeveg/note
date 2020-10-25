@@ -52,9 +52,9 @@
             url: "/login/doLogin",
             dataType: "json",
             async: false,
-            data: {userName: userName, userPwd: userPwd},
+            data: {username: userName, password: userPwd},
             success: function (data) {
-                if (data.flag == true) {
+                if (data.code == 200) {
                     $.toast({
                         text: data.msg,
                         heading: '提示',
@@ -68,12 +68,12 @@
                         loader: true,
                         loaderBg: '#ffffff',
                         afterHidden: function () {
-                            window.location.href = "/login";
+                            window.location.href = "/admin";
                         }
                     });
                 } else {
                     loadingBack("btn_login", "登录");
-                    showMsg(data.msg, "error", 3000);
+                    showMsg(data.message, "error", 3000);
                 }
             }, error: function (data) {
                 loadingBack("btn_login", "登录");

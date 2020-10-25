@@ -11,6 +11,13 @@
 
     <groupId>com.leeveg</groupId>
     <artifactId>note-dao</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.leeveg</groupId>
+            <artifactId>note-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

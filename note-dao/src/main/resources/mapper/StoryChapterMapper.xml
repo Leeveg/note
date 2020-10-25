@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leeveg.note.dao.mapper.StoryChapterMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.leeveg.note.dao.domain.StoryChapter">
+        <result column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="creator" property="creator" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="modifier" property="modifier" />
+        <result column="sys_status" property="sysStatus" />
+        <result column="comment" property="comment" />
+        <result column="chapter_id" property="chapterId" />
+        <result column="chapter_name" property="chapterName" />
+        <result column="chapter_author" property="chapterAuthor" />
+        <result column="chapter_desc" property="chapterDesc" />
+        <result column="chapter_content" property="chapterContent" />
+        <result column="chapter_status" property="chapterStatus" />
+        <result column="chapter_publish_time" property="chapterPublishTime" />
+        <result column="chapter_part_id" property="chapterPartId" />
+        <result column="chapter_before" property="chapterBefore" />
+        <result column="chapter_after" property="chapterAfter" />
+    </resultMap>
+
+</mapper>

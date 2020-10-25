@@ -1,9 +1,14 @@
 package com.leeveg.note.config;
 
+import com.leeveg.note.interceptor.IndexInterceptor;
+import com.leeveg.note.interceptor.LoginInterceptor;
+import com.leeveg.note.interceptor.RegistInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.unit.DataSize;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -11,25 +16,25 @@ import javax.servlet.MultipartConfigElement;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-//	@Autowired
-//	private LoginInterceptor loginAuthenticator;
-//	@Autowired
-//	private IndexInterceptor indexInterceptor;
-//	@Autowired
-//	private InstallInterceptor installInterceptor;
+	@Autowired
+	private LoginInterceptor loginAuthenticator;
+	@Autowired
+	private IndexInterceptor indexInterceptor;
+	@Autowired
+	private RegistInterceptor registInterceptor;
 
     /**
      * 注册拦截器
      */
-//	@Override
-//	public void addInterceptors(InterceptorRegistry registry) {
-//		registry.addInterceptor(loginAuthenticator).addPathPatterns("/admin/**").excludePathPatterns("/admin/login")
-//				.excludePathPatterns("/admin/getLogin");
-//		registry.addInterceptor(indexInterceptor);
-//		registry.addInterceptor(installInterceptor).addPathPatterns("/**").excludePathPatterns("/install")
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(loginAuthenticator).addPathPatterns("/admin/**").excludePathPatterns("/login")
+				.excludePathPatterns("/doLogin");
+		registry.addInterceptor(indexInterceptor);
+//		registry.addInterceptor(registInterceptor).addPathPatterns("/**").excludePathPatterns("/install")
 //				.excludePathPatterns("/install/execute").excludePathPatterns("/js/**").excludePathPatterns("/css/**")
 //				.excludePathPatterns("/img/**").excludePathPatterns("/plugins/**");
-//	}
+	}
 
     /**
      * 释放静态资源

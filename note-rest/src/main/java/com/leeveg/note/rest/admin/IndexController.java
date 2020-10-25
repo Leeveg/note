@@ -12,15 +12,14 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2020-10-23 15:24
  */
 @Controller
-@RequestMapping()
+@RequestMapping("index")
 public class IndexController {
 
     @Resource
     HttpServletRequest request;
 
     @RequestMapping("")
-    public String index(@RequestParam(value = "name") String name) {
-        request.setAttribute("name", name);
+    public String index() {
         return "index";
     }
 }

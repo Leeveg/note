@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leeveg.note.dao.mapper.NoteEntityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.leeveg.note.dao.domain.NoteEntity">
+        <result column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="creator" property="creator" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="modifier" property="modifier" />
+        <result column="sys_status" property="sysStatus" />
+        <result column="comment" property="comment" />
+        <result column="entity_id" property="entityId" />
+        <result column="topic_id" property="topicId" />
+        <result column="entity_name" property="entityName" />
+        <result column="entity_content" property="entityContent" />
+        <result column="entity_source" property="entitySource" />
+        <result column="entity_desc" property="entityDesc" />
+    </resultMap>
+
+</mapper>

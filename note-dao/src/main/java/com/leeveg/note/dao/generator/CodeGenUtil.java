@@ -92,7 +92,7 @@ public class CodeGenUtil {
     private PackageConfig getPackageConfig(String packageName) {
         return new PackageConfig()
                 // 包名
-                .setParent(packageName).setController("controller").setEntity("domain").setMapper("mapper")
+                .setParent(packageName).setEntity("domain").setMapper("mapper")
                 .setService("service").setServiceImpl("service.impl");
     }
 
@@ -174,15 +174,15 @@ public class CodeGenUtil {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/note?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false";
         String username = "root";
-        String password = "root";
+        String password = "123456";
         String driverName = "com.mysql.cj.jdbc.Driver";
         CodeGenConfig codeGenConfig = new CodeGenConfig();
-        codeGenConfig.setPackageName("com.fxtcn.fsc.sys.dao");
-        codeGenConfig.setAuthor("blank");
+        codeGenConfig.setPackageName("com.leeveg.note.dao");
+        codeGenConfig.setAuthor("leeveg");
         codeGenConfig.setModuleName("note-dao");
-        codeGenConfig.setTablePrefix("fsc_");
-        codeGenConfig.setTableName("fsc_signature_holder");
-        codeGenConfig.setComments("签章授权表");
+        codeGenConfig.setTablePrefix("d_");
+        codeGenConfig.setTableName("d_story_part");
+//        codeGenConfig.setComments("摘抄，素材，笔记");
         DataSourceConfig dataSourceConfig = new DataSourceConfig().setDbType(DbType.MYSQL).setUrl(url)
                 .setUsername(username).setPassword(password).setDriverName(driverName);
         CodeGenUtil codeGenUtil = new CodeGenUtil();

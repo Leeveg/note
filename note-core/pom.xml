@@ -11,6 +11,13 @@
 
     <groupId>com.leeveg</groupId>
     <artifactId>note-core</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.leeveg</groupId>
+            <artifactId>note-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

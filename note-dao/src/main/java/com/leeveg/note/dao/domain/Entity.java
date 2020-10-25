@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -26,7 +26,7 @@ public abstract class Entity implements Serializable {
     private Long id;
 
     /**
-     * 是否有效(0：无效，1：有效，-1：删除)
+     * 是否有效(0：无效，1：有效)
      */
     private Integer sysStatus;
 
@@ -39,7 +39,7 @@ public abstract class Entity implements Serializable {
     /**
      * 创建日期
      */
-    private LocalDateTime crtTime;
+    private Date createTime;
 
     /**
      * 修改人
@@ -50,12 +50,12 @@ public abstract class Entity implements Serializable {
     /**
      * 修改日期
      */
-    private LocalDateTime modTime;
+    private Date modifyTime;
 
     /**
      * 操作说明
      */
-    private String sysComment;
+    private String comment;
 
 
 }

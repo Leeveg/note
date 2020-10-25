@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leeveg.note.dao.mapper.StoryOutlineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.leeveg.note.dao.domain.StoryOutline">
+        <result column="id" property="id" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="sys_status" property="sysStatus" />
+        <result column="parent_id" property="parentId" />
+        <result column="outline_type" property="outlineType" />
+        <result column="outline_content" property="outlineContent" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="comment" property="comment" />
+    </resultMap>
+
+</mapper>
