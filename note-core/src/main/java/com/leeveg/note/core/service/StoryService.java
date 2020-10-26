@@ -9,7 +9,8 @@ import com.leeveg.note.api.dto.StoryChapterDto;
 import com.leeveg.note.api.dto.StoryPartDto;
 import com.leeveg.note.api.param.StoryListParam;
 import com.leeveg.note.api.service.IStoryService;
-import com.leeveg.note.common.constant.SysStatusConstant;
+import com.leeveg.note.api.constant.SysStatusConstant;
+import com.leeveg.note.common.util.CurrentThreadHolder;
 import com.leeveg.note.common.util.IDGenerator;
 import com.leeveg.note.dao.domain.StoryBook;
 import com.leeveg.note.dao.domain.StoryChapter;
@@ -38,21 +39,9 @@ public class StoryService implements IStoryService {
 
     @Override
     public Page<StoryBookDto> queryStoryBookList(StoryListParam param) {
-        IPage<StoryBook> page = new Page<StoryBook>(param.getPageCurrent(), param.getPageSize());
-        QueryWrapper<StoryBook> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.lambda().eq(StoryBook::getTenantId, user.getTenantId());
-//                .eq(StoryBook::getAuthId, user.getAuthId())
-//                .eq(StoryBook::getSysStatus, SysStatusEnum.ENABLED.getValue())
-//                .eq(StoryBook::getAuditStatus, SealGrantAuditStatusEnum.ACCEPTED.getValue())
-//                .like(StringUtils.isNotBlank(param.getImageNameLike()), StoryBook::getImageName,
-//                        param.getImageNameLike())
-//                .eq(param.getType() != null, StoryBook::getType, param.getType())
-//                .eq(param.getHoldType() != null, StoryBook::getHoldType, param.getHoldType())
-//                .orderByAsc(StoryBook::getHoldType)
-//                .orderByDesc(StoryBook::getCrtTime);
-        IPage<StoryBook> result = storyBookService.page(page, queryWrapper);
-
-        return null;
+        param.setUserId(CurrentThreadHolder.getUser().getUserId());
+        Page<StoryBookDto> result = storyBookService.queryStoryBookList(param);
+        return result;
     }
 
     @Override

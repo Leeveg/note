@@ -1,7 +1,7 @@
 package com.leeveg.note.api.service;
 
-import com.leeveg.note.dao.domain.User;
+import com.leeveg.note.api.dto.UserInfo;
 
 public interface ILoginService {
-    User doLogin(String username, String password);
+    UserInfo doLogin(String username, String password);
 }

@@ -13,11 +13,6 @@
     <artifactId>note-api</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.leeveg</groupId>
-            <artifactId>note-dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
 </project>

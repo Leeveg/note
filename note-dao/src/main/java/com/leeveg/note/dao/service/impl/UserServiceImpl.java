@@ -1,7 +1,7 @@
 package com.leeveg.note.dao.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.leeveg.note.common.constant.SysStatusConstant;
+import com.leeveg.note.api.constant.SysStatusConstant;
 import com.leeveg.note.dao.domain.User;
 import com.leeveg.note.dao.mapper.UserMapper;
 import com.leeveg.note.dao.service.IUserService;

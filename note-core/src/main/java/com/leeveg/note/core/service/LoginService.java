@@ -1,8 +1,10 @@
 package com.leeveg.note.core.service;
 
+import com.leeveg.note.api.dto.UserInfo;
 import com.leeveg.note.api.service.ILoginService;
 import com.leeveg.note.dao.domain.User;
 import com.leeveg.note.dao.service.IUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,8 +14,11 @@ public class LoginService implements ILoginService {
     @Resource
     IUserService userService;
     @Override
-    public User doLogin(String username, String password) {
+    public UserInfo doLogin(String username, String password) {
         User user = userService.findUser(username,password);
-        return user;
+        UserInfo userInfo = new UserInfo();
+        BeanUtils.copyProperties(user,userInfo);
+        userInfo.setUserId(user.getId());
+        return userInfo;
     }
 }

@@ -9,4 +9,8 @@ import lombok.Data;
  */
 @Data
 public class StoryListParam extends PageParam {
+
+    private static final long serialVersionUID = 3319184075061042418L;
+
+    private long userId;
 }

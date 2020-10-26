@@ -1,4 +1,4 @@
-package com.leeveg.note.common.constant;
+package com.leeveg.note.api.constant;
 
 public enum ResultCode {
     SUCCESS(200, "请求成功"),

@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("story")
+@RequestMapping("admin/story")
 public class StoryController {
 
     @Resource
     IStoryService storyService;
 
     @RequestMapping({"", "index"})
-    public String index(Model model, @RequestParam(value = "current", defaultValue = "1") int current,
+    public String index(Model model, @RequestParam(value = "page", defaultValue = "1") int page,
                         @RequestParam(value = "size", defaultValue = "10") int size) {
         StoryListParam param = new StoryListParam();
-        param.setPageCurrent(current);
+        param.setPageCurrent(page);
         param.setPageSize(size);
         Page<StoryBookDto> pageInfo = storyService.queryStoryBookList(param);
         model.addAttribute("pageInfo", pageInfo);
-        return "/story/storyList";
+        return "admin/story/storyList";
     }
 }

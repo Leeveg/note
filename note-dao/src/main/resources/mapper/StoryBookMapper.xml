@@ -11,6 +11,7 @@
         <result column="modifier" property="modifier" />
         <result column="sys_status" property="sysStatus" />
         <result column="comment" property="comment" />
+        <result column="user_id" property="userId" />
         <result column="book_id" property="bookId" />
         <result column="book_name" property="bookName" />
         <result column="book_type" property="bookType" />
@@ -18,4 +19,24 @@
         <result column="book_desc" property="bookDesc" />
     </resultMap>
 
+    <resultMap id="StoryBookDto" type="com.leeveg.note.api.dto.StoryBookDto">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="creator" property="creator"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="modifier" property="modifier"/>
+        <result column="comment" property="comment"/>
+        <result column="user_id" property="userId"/>
+        <result column="book_id" property="bookId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="book_type" property="bookType"/>
+        <result column="book_author" property="bookAuthor"/>
+        <result column="book_desc" property="bookDesc"/>
+    </resultMap>
+
+    <select id="queryStoryBookList" resultMap="StoryBookDto">
+        select *
+        from d_story_book
+        where sys_status = 1 and user_id=${params.userId}
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.leeveg.note.common.util;
 
+import com.leeveg.note.api.dto.UserInfo;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -38,6 +40,24 @@ public class CurrentThreadHolder {
             set("reqno", reqno);
         }
         return reqno;
+    }
+
+    /**
+     * 获取 user 信息
+     *
+     * @return
+     */
+    public static UserInfo getUser() {
+        return get("user");
+    }
+
+    /**
+     * 保存 user 信息
+     *
+     * @return
+     */
+    public static void setUser(UserInfo user) {
+        set("user", user);
     }
 
     public static void remove() {

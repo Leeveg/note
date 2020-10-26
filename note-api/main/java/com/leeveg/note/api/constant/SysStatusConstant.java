@@ -1,4 +1,4 @@
-package com.leeveg.note.common.constant;
+package com.leeveg.note.api.constant;
 
 public class SysStatusConstant {
     public static final int ENABLE=1;// 有效

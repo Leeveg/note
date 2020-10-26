@@ -1,9 +1,11 @@
 package com.leeveg.note.dao.mapper;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.leeveg.note.api.dto.StoryBookDto;
+import com.leeveg.note.api.param.StoryListParam;
 import com.leeveg.note.dao.domain.StoryBook;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -15,5 +17,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface StoryBookMapper extends BaseMapper<StoryBook> {
 
-    IPage<StoryBook> queryStoryBookList(Page page, StoryBook queryParams);
+    Page<StoryBookDto> queryStoryBookList(Page page, @Param("params") StoryListParam queryParams);
 }

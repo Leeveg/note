@@ -1,10 +1,12 @@
 package com.leeveg.note.rest.admin;
 
+import com.leeveg.note.api.dto.UserInfo;
 import com.leeveg.note.api.service.ILoginService;
-import com.leeveg.note.common.base.ResultMsg;
-import com.leeveg.note.common.constant.CacheKey;
+import com.leeveg.note.api.base.ResultMsg;
+import com.leeveg.note.api.constant.CacheKey;
 import com.leeveg.note.dao.domain.User;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +42,7 @@ public class LoginController {
         if (StringUtils.isAnyBlank(username, password)) {
             return ResultMsg.fail("用户名或密码错误");
         }
-        User user = loginService.doLogin(username, password);
+        UserInfo user = loginService.doLogin(username, password);
         if (user == null) {
             return ResultMsg.fail("用户名或密码错误");
         }

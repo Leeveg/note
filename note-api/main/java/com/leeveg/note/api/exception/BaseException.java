@@ -1,6 +1,6 @@
-package com.leeveg.note.common.exception;
+package com.leeveg.note.api.exception;
 
-import com.leeveg.note.common.constant.ResultCode;
+import com.leeveg.note.api.constant.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
 

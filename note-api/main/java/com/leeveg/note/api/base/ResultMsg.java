@@ -1,6 +1,6 @@
-package com.leeveg.note.common.base;
+package com.leeveg.note.api.base;
 
-import com.leeveg.note.common.constant.ResultCode;
+import com.leeveg.note.api.constant.ResultCode;
 import lombok.Data;
 
 import java.io.Serializable;

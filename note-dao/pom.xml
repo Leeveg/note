@@ -14,8 +14,9 @@
     <dependencies>
         <dependency>
             <groupId>com.leeveg</groupId>
-            <artifactId>note-common</artifactId>
+            <artifactId>note-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

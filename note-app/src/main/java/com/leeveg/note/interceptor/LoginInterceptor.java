@@ -1,6 +1,8 @@
 package com.leeveg.note.interceptor;
 
-import com.leeveg.note.common.constant.CacheKey;
+import com.leeveg.note.api.dto.UserInfo;
+import com.leeveg.note.api.constant.CacheKey;
+import com.leeveg.note.common.util.CurrentThreadHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,9 +15,10 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        Object obj = request.getSession().getAttribute(CacheKey.USER_SESSION);
+        UserInfo userInfo = (UserInfo) request.getSession().getAttribute(CacheKey.USER_SESSION);
         // 如果user不为空则放行
-        if (null != obj) {
+        if (null != userInfo) {
+            CurrentThreadHolder.setUser(userInfo);
             return true;
         }
         // 否则拦截并跳转到登录
