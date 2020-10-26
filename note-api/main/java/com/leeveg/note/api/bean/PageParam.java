@@ -5,8 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class PageInfo implements Serializable {
+public class PageParam implements Serializable {
     private static final long serialVersionUID = -8412275150662179636L;
-    private int pageIndex;
+    private int pageCurrent;
     private int pageSize;
 }

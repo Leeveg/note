@@ -40,25 +40,6 @@ public class CurrentThreadHolder {
         return reqno;
     }
 
-//    /**
-//     * 获取app信息
-//     *
-//     * @return
-//     */
-//    public static App getApp() {
-//        return get("app");
-//    }
-//
-//    /**
-//     * 获取app信息
-//     *
-//     * @return
-//     */
-//    public static void setApp(App app) {
-//        set("app", app);
-//    }
-
-
     public static void remove() {
         currentThread.remove();
     }

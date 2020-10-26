@@ -22,60 +22,60 @@
     <script type="text/javascript" th:src="@{/plugins/bootstrap-fileinput/themes/fa/theme.js}"></script>
 </div>
 
-<div class="clearfix" th:fragment="pageArticle(pageInfo,status)">
+<div class="clearfix" th:fragment="pageBook(pageInfo)">
     <ul class="pagination no-margin float-right">
-        <li th:if="${pageInfo.pages}!=0" class="page-item"><a class="page-link" href="#" th:text="'共'+ ${pageInfo.pages}+'页'"></a></li>
-        <li th:if="${pageInfo.hasPreviousPage}" class="page-item"><a
-                th:href="@{'?page='+${pageInfo.prePage}+'&status='+${status}}" class="page-link"> <i
+        <li th:if="${pageInfo.pages}!=0" class="page-item"><a class="page-link" href="#" th:text="'共'+ ${pageParam.pages}+'页'"></a></li>
+        <li th:if="${pageParam.hasPreviousPage}" class="page-item"><a
+                th:href="@{'?page='+${pageParam.prePage}+'&status='+${status}}" class="page-link"> <i
                 class="fa fa-angle-left"></i>&nbsp;上一页
         </a></li>
-        <th:block th:each="nav : ${pageInfo.navigatepageNums}">
+        <th:block th:each="nav : ${pageParam.navigatepageNums}">
             <li
-                    th:class="${nav==pageInfo.pageNum} ? 'page-item active':'page-item'"><a
+                    th:class="${nav==pageParam.pageNum} ? 'page-item active':'page-item'"><a
                     class="page-link" th:href="@{'?page='+${nav}+'&status='+${status}}" th:text="${nav}"></a>
             </li>
         </th:block>
-        <th:block th:if="${pageInfo.hasNextPage}">
+        <th:block th:if="${pageParam.hasNextPage}">
             <li class="page-item"><a
-                    th:href="@{'?page='+${pageInfo.nextPage}+'&status='+${status}}" class="page-link">
+                    th:href="@{'?page='+${pageParam.nextPage}+'&status='+${status}}" class="page-link">
                 下一页&nbsp;<i class="fa fa-angle-right"></i>
             </a></li>
         </th:block>
     </ul>
 </div>
 
-<div class="clearfix" th:fragment="pageAdminNav(pageInfo)">
+<div class="clearfix" th:fragment="pageAdminNav(pageParam)">
     <ul class="pagination no-margin float-right">
-        <li th:if="${pageInfo.pages}!=0" class="page-item"><a class="page-link" href="#" th:text="'共'+ ${pageInfo.pages}+'页'"></a></li>
-        <li th:if="${pageInfo.hasPreviousPage}" class="page-item"><a
-                th:href="@{'?page='+${pageInfo.prePage}}" class="page-link"> <i
+        <li th:if="${pageParam.pages}!=0" class="page-item"><a class="page-link" href="#" th:text="'共'+ ${pageParam.pages}+'页'"></a></li>
+        <li th:if="${pageParam.hasPreviousPage}" class="page-item"><a
+                th:href="@{'?page='+${pageParam.prePage}}" class="page-link"> <i
                 class="fa fa-angle-left"></i>&nbsp;上一页
         </a></li>
-        <th:block th:each="nav : ${pageInfo.navigatepageNums}">
+        <th:block th:each="nav : ${pageParam.navigatepageNums}">
             <li
-                    th:class="${nav==pageInfo.pageNum} ? 'page-item active':'page-item'"><a
+                    th:class="${nav==pageParam.pageNum} ? 'page-item active':'page-item'"><a
                     class="page-link" th:href="@{'?page='+${nav}}" th:text="${nav}"></a>
             </li>
         </th:block>
-        <th:block th:if="${pageInfo.hasNextPage}">
+        <th:block th:if="${pageParam.hasNextPage}">
             <li class="page-item"><a
-                    th:href="@{'?page='+${pageInfo.nextPage}}" class="page-link">
+                    th:href="@{'?page='+${pageParam.nextPage}}" class="page-link">
                 下一页&nbsp;<i class="fa fa-angle-right"></i>
             </a></li>
         </th:block>
     </ul>
 </div>
 
-<ol class="page-navigator" th:fragment="pageNav(pageInfo, prevText, nextText, prefix)">
-    <th:block th:if="${pageInfo.hasPreviousPage}">
-        <li class="prev"><a th:href="@{'/'+${prefix}+'/'+${pageInfo.prePage}}" th:text="${prevText}"></a></li>
+<ol class="page-navigator" th:fragment="pageNav(pageParam, prevText, nextText, prefix)">
+    <th:block th:if="${pageParam.hasPreviousPage}">
+        <li class="prev"><a th:href="@{'/'+${prefix}+'/'+${pageParam.prePage}}" th:text="${prevText}"></a></li>
     </th:block>
-    <th:block th:each="navIndex :${ pageInfo.navigatepageNums}">
-        <li th:class="${pageInfo.pageNum==navIndex}?'current':''"><a th:href="@{'/'+${prefix}+'/'+${navIndex}}"
+    <th:block th:each="navIndex :${ pageParam.navigatepageNums}">
+        <li th:class="${pageParam.pageNum==navIndex}?'current':''"><a th:href="@{'/'+${prefix}+'/'+${navIndex}}"
                                                                      th:text="${navIndex}"></a></li>
     </th:block>
-    <th:block th:if="${pageInfo.hasNextPage}">
-        <li class="next"><a th:href="@{'/'+${prefix}+'/'+${pageInfo.nextPage}}" th:text="${nextText}"></a></li>
+    <th:block th:if="${pageParam.hasNextPage}">
+        <li class="next"><a th:href="@{'/'+${prefix}+'/'+${pageParam.nextPage}}" th:text="${nextText}"></a></li>
     </th:block>
 
 </ol>

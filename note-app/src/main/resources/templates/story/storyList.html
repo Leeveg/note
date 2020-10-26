@@ -30,12 +30,12 @@
                             <td>创建时间</td>
                             <td>操作</td>
                         </tr>
-<!--                        <tr th:each="article,iterStat : ${info.list}">-->
-<!--                            <td th:text="${#strings.abbreviate(article.articleTitle,20)}" class="mt-auto"></td>-->
-<!--                            <td th:text="${#strings.abbreviate(article.categorysName,20)}"></td>-->
-<!--                            <td th:text="${#strings.abbreviate(article.tagsName,20)}"></td>-->
-<!--                            <td-->
-<!--                                    th:text="${#dates.format(article.articleNewstime,'yyyy/MM/dd HH:mm:ss')}"></td>-->
+                        <tr th:each="storyBook,iterStat : ${pageInfo.records}">
+                            <td th:text="${#strings.abbreviate(storyBook.bookName,20)}" class="mt-auto"></td>
+                            <td th:text="${#strings.abbreviate(storyBook.bookName,20)}"></td>
+                            <td th:text="${#strings.abbreviate(storyBook.bookName,20)}"></td>
+                            <td
+                                    th:text="${#dates.format(storyBook.createTime,'yyyy/MM/dd HH:mm:ss')}"></td>
 <!--                            <td th:switch="${article.articleStatus}">-->
 <!--                                <th:block-->
 <!--                                        th:case="0">-->
@@ -68,13 +68,13 @@
 <!--                                    </button>-->
 <!--                                </th:block>-->
 <!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr th:unless="${info.list.total} != 0">-->
-<!--                            <td th:text="暂无文章" th:attr="colspan='7',align='center'"></td>-->
-<!--                        </tr>-->
+                        </tr>
+                        <tr th:unless="${pageInfo.total} != 0">
+                            <td th:text="暂无数据" th:attr="colspan='7',align='center'"></td>
+                        </tr>
                     </table>
                 </div>
-<!--                <div th:replace="admin/module/macros :: pageArticle(${info},${status})"></div>-->
+                <div th:replace="module/macros :: pageBook(${pageInfo})"></div>
             </div>
         </div>
     </div>
